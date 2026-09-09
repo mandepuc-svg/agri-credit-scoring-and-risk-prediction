@@ -1,0 +1,11 @@
+Metric,Value
+Total Farmers (Test Set),1000
+Default Rate (%),56.4%
+Portfolio Expected Loss (TZS),"614,981,901"
+Average Expected Loss per Farmer (TZS),"614,982"
+Median Expected Loss per Farmer (TZS),"590,065"
+Max Expected Loss (single farmer) (TZS),"1,708,418"
+Baseline Model ROC-AUC,0.4910
+Improved Model ROC-AUC,0.4856
+Model Improvement (%),-1.1%
+CV ROC-AUC Mean ± Std,0.5092 ± 0.0137
