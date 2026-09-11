@@ -117,10 +117,10 @@ def score_farmer(farmer_data):
 # TABS
 # ============================================================================
 tab1, tab2, tab3, tab4 = st.tabs([
-    "🔗 Integrated Analysis",
-    "📊 Single Farmer Score",
-    "📦 Batch Upload",
-    "ℹ️ About"
+    " Integrated Analysis",
+    " Single Farmer Score",
+    " Batch Upload",
+    "About"
 ])
 
 # ============================================================================
