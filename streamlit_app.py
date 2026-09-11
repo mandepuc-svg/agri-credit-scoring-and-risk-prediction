@@ -155,7 +155,7 @@ with tab1:
             loan_amount = st.number_input("Loan Amount Requested (TZS)", min_value=100000, value=2000000, step=100000)
         
         with col2:
-            st.subheader("🌱 Farm Conditions")
+            st.subheader(" Farm Conditions")
             
             rainfall = st.slider("Rainfall (mm/season)", min_value=200, max_value=1500, value=650, step=50)
             temperature = st.slider("Avg Temperature (°C)", min_value=5, max_value=35, value=22, step=1)
@@ -163,7 +163,7 @@ with tab1:
             nitrogen = st.slider("Nitrogen Applied (kg/ha)", min_value=20, max_value=250, value=120, step=10)
             
             # Info box with optimal conditions
-            with st.expander("📖 Optimal Conditions Reference", expanded=False):
+            with st.expander(" Optimal Conditions Reference", expanded=False):
                 st.markdown("""
                 - **Rainfall:** ~650mm (too little = drought, too much = waterlogging)
                 - **Temperature:** ~22°C (below 15°C or above 28°C = stress)
@@ -174,7 +174,7 @@ with tab1:
         # ANALYZE BUTTON
         col1, col2, col3 = st.columns([1, 1, 2])
         with col1:
-            analyze_btn = st.button("🎯 Analyze Farmer", key="analyze", use_container_width=True)
+            analyze_btn = st.button(" Analyze Farmer", key="analyze", use_container_width=True)
         with col2:
             reset_btn = st.button("↺ Reset", key="reset", use_container_width=True)
         
@@ -222,7 +222,7 @@ with tab1:
                 
                 # INTEGRATED DECISION
                 if pd_pct < 15 and recommended_loan >= loan_amount * 0.95:
-                    decision = "✅ APPROVE"
+                    decision = "☑️ APPROVE"
                     decision_type = "approve"
                 elif pd_pct < 30 and recommended_loan >= loan_amount * 0.80:
                     decision = "⚠️ CONDITIONAL APPROVAL"
@@ -314,7 +314,7 @@ with tab1:
                 # DOWNLOAD RESULTS
                 results_csv = summary_df.to_csv(index=False)
                 st.download_button(
-                    label="📥 Download Results",
+                    label=" Download Results",
                     data=results_csv,
                     file_name=f"{farmer_id}_analysis.csv",
                     mime="text/csv"
@@ -494,7 +494,7 @@ with tab4:
     
     | Condition | Decision |
     |-----------|----------|
-    | PD < 15% & Loan ≤ Capacity | ✅ APPROVE |
+    | PD < 15% & Loan ≤ Capacity | ☑️ APPROVE |
     | PD < 30% & Loan ≤ 80% Capacity | ⚠️ CONDITIONAL |
     | Otherwise | ❌ REJECT |
     
