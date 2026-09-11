@@ -203,7 +203,7 @@ with tab1:
                 max_loan = farm_income * dsr
                 
                 # RISK FACTORS
-                pd = credit_score['pd']
+                pd_scr = credit_score['pd']
                 pd_pct = credit_score['pd_pct']
                 risk_cat = credit_score['risk_category']
                 
@@ -514,4 +514,4 @@ with tab4:
     """)
 
 st.markdown("---")
-st.markdown("*Agri-Credit & Yield Prediction Platform | © 2024*")
+st.markdown("*Agri-Credit & Yield Prediction Platform | © 2026*")
