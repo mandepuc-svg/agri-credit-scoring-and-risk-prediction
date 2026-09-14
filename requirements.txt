@@ -6,3 +6,7 @@ category-encoders==2.10.0
 matplotlib
 seaborn
 plotly==5.14.0
+streamlit-option-menu
+streamlit-lottie>=0.0.5  # Animated GIFs/animations
+streamlit-aggrid>=0.3.0  # Interactive data tables
+streamlit-echarts>=0.0.50  # Advanced interactive charts
