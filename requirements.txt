@@ -5,3 +5,4 @@ scikit-learn
 category-encoders==2.10.0
 matplotlib
 seaborn
+plotly==5.14.0
