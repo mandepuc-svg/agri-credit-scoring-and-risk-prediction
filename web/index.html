@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#102e4e"><title>Agri Horizon · Farmer intelligence</title><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script></head>
+<body>
+<div class="landscape" aria-hidden="true"></div>
+<div class="shell">
+  <header><a class="brand" href="/"><span class="brand-icon">↗</span><span>agri<span class="brand-light">horizon</span><small>GROWTH, GROUNDED IN DATA</small></span></a><div class="header-right"><span class="country">TANZANIA <span> / </span> AGRI FINANCE</span><span id="model-status" class="status" role="status">Connecting to model…</span></div></header>
+  <main>
+    <section class="hero"><div><p class="eyebrow"><span></span> A CLEARER VIEW OF WHAT’S POSSIBLE</p><h1>Better insights.<br><em>Stronger harvests.</em></h1><p class="intro">Bring farm potential and financial insight together.<br>Make your next lending decision with a wider perspective.</p></div><div class="hero-note"><span class="compass">✳</span><p>Rooted in agriculture.<br>Built for the road ahead.</p><span class="note-line"></span></div></section>
+    <nav class="glass navigation" aria-label="Assessment type"><button class="active" data-mode="integrated" aria-pressed="true"><span>01</span> Integrated assessment</button><button data-mode="credit" aria-pressed="false"><span>02</span> Credit risk</button><button data-mode="yield" aria-pressed="false"><span>03</span> Crop yield</button><button data-mode="batch" aria-pressed="false"><span>04</span> Batch scoring</button><button data-mode="about" aria-pressed="false">About <span>↗</span></button></nav>
+    <div class="section-heading"><div><p class="eyebrow orange">YOUR NEXT DECISION STARTS HERE</p><h2 id="page-title">The whole farm. One assessment.</h2></div><span id="page-caption">01 / INTEGRATED INTELLIGENCE</span></div>
+    <section id="assessment">
+      <form id="farmer-form">
+        <div class="workspace">
+          <section class="glass panel" id="profile-panel"><div class="panel-heading"><span class="panel-icon">↗</span><div><h3>Farmer & credit profile</h3><p>The people and potential behind the numbers.</p></div><span class="step">01</span></div><div class="fields">
+            <label>Farmer reference<input name="farmer_id" value="FARMER_0001" maxlength="80" required></label>
+            <label>Region<select name="region"><option>Dodoma</option><option>Arusha</option><option>Mbeya</option><option>Morogoro</option><option>Mwanza</option></select></label>
+            <label>Primary crop<select name="primary_crop"><option>Maize</option><option>Cashew</option><option>Coffee</option><option>Rice</option></select></label>
+            <label>Farm size <span>hectares</span><input name="farm_size_hectares" type="number" min="0.5" max="20" step="0.1" value="5" required></label>
+            <label>Mobile money inflow <span>TZS / year</span><input name="mobile_money_inflow" type="number" min="0" max="1000000000000" value="500000" required></label>
+            <label>Requested loan <span>TZS</span><input name="loan_amount_requested" type="number" min="100000" max="1000000000000" value="2000000" required></label>
+            <label>Cooperative member<select name="coop_member"><option>Yes</option><option>No</option></select></label>
+            <label>Subsidy status<select name="subsidy_status"><option>Received</option><option selected>Pending</option><option>Not Received</option></select></label>
+          </div></section>
+          <section class="glass panel" id="conditions-panel"><div class="panel-heading"><span class="panel-icon orange-icon">☀</span><div><h3>Ground conditions</h3><p>A closer look at the growing environment.</p></div><span class="step">02</span></div>
+            <div class="sliders">
+              <label class="slider-label" for="rainfall">Seasonal rainfall <output for="rainfall">650 <small>mm</small></output></label><input id="rainfall" name="rainfall" type="range" min="200" max="1500" step="10" value="650" data-unit="mm"><div class="range-ends"><span>200 mm</span><span>1,500 mm</span></div>
+              <label class="slider-label" for="temperature">Average temperature <output for="temperature">22 <small>°C</small></output></label><input id="temperature" name="temperature" type="range" min="5" max="35" value="22" data-unit="°C"><div class="range-ends"><span>5 °C</span><span>35 °C</span></div>
+              <label class="slider-label" for="soil_ph">Soil pH <output for="soil_ph">6.5 <small>pH</small></output></label><input id="soil_ph" name="soil_ph" type="range" min="4.5" max="8.5" step="0.1" value="6.5" data-unit="pH"><div class="range-ends"><span>4.5 · Acidic</span><span>8.5 · Alkaline</span></div>
+              <label class="slider-label" for="nitrogen">Nitrogen applied <output for="nitrogen">120 <small>kg/ha</small></output></label><input id="nitrogen" name="nitrogen" type="range" min="20" max="250" value="120" data-unit="kg/ha"><div class="range-ends"><span>20 kg/ha</span><span>250 kg/ha</span></div>
+            </div><div class="insight"><span>i</span><p>Small changes on the ground can shape the bigger picture. Yield estimates use your existing formula.</p></div>
+          </section>
+        </div>
+        <div class="action-bar"><p><span class="orange">✳</span> Your inputs. A more informed outlook.</p><div><button class="reset" type="reset">Reset inputs</button><button class="primary" id="analyze" type="submit">Run assessment <span>↗</span></button></div></div>
+      </form>
+    </section>
+    <section id="batch" class="glass panel" hidden><p class="eyebrow orange">A WIDER PERSPECTIVE</p><h3>Score your farmer portfolio</h3><p>Upload a CSV with up to 1,000 farmers. Each row is scored with the trained credit model.</p><p class="muted">Use the template for the required columns and supported values.</p><button id="template" class="reset" type="button">↓ Download CSV template</button><form id="batch-form"><label class="upload">Choose a CSV file<input id="csv-file" type="file" accept=".csv,text/csv" required></label><button class="primary" type="submit">Score portfolio ↗</button></form><div id="batch-results"></div></section>
+    <section id="about" class="glass panel" hidden><p class="eyebrow orange">BEHIND THE INSIGHTS</p><h3>Connected to your existing work.</h3><p>The credit assessment uses your saved Random Forest classifier and target encoder. Crop yield preserves the formula from your Streamlit app; it is an estimate, not a trained yield model.</p><p>Income assumes TZS 300/kg. Repayment capacity uses 35% of estimated gross income, and expected loss assumes 45% loss given default. Loan recommendations retain the original assessment rules and do not account for interest, expenses, or a repayment schedule.</p><p>Pending subsidies are encoded as received, matching the original app. Other notebook models have no saved artifacts connected here.</p><p>Inputs are processed by the local Python server and are not stored by this app.</p></section>
+    <p id="message" class="message" role="status" hidden></p>
+    <section id="results" hidden aria-live="polite"><div class="section-heading"><div><p class="eyebrow orange">FROM INPUT TO INSIGHT</p><h2>Your farm outlook</h2></div><button class="reset" id="download" type="button">Download report ↓</button></div><p id="result-context" class="muted"></p><div id="metrics" class="metrics"></div><div id="recommendation" class="glass recommendation"></div><p class="assumptions">Decision support based on existing model and assessment rules. Yield is formula-based; income assumes TZS 300/kg, repayment capacity 35% of gross income, and loss given default 45%.</p></section>
+  </main>
+  <footer><span>agrihorizon <span class="footer-divider">/</span> A brighter outlook for agriculture.</span><span>Farmer intelligence · Tanzania</span><a href="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b" target="_blank" rel="noreferrer">Mountain photography · Unsplash ↗</a></footer>
+</div>
+</body></html>
